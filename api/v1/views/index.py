@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-for index
+routea for index
 """
 
 from flask import jsonify
@@ -8,7 +8,7 @@ from api.v1.views import app_views
 from models import storage
 
 
-@app_views.route('/status', methods=['GET'])
+@app_views.route('/status', strict_slashes=False)
 def get_status():
     """Returns the status of the API"""
     data = jsonify({"status": "OK"})
@@ -16,8 +16,8 @@ def get_status():
     return data
 
 
-@app_views.route("/stats", methods=['GET'])
-def stats():
+@app_views.route("/stats", strict_slashes=False)
+def get_stats():
     """
     route to return stats of all objects
     """
