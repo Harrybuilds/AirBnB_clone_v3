@@ -1,12 +1,10 @@
-
 #!/usr/bin/python3
 
-from models import storage
-from flask import Flask
-
-app = Flask("__name__")
+from flask import jsonify
+from api.v1.views import app_views
 
 
-@app.route("/api/v1/stats", strict_slashes=False)
-def stat():
-    return storage.count()
+@app_views.route('/status', methods=['GET'])
+def get_status():
+    """Returns the status of the API"""
+    return jsonify({"status": "OK"})
