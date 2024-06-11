@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""Place objects that handles all default RESTFul API actions"""
+"""
+Place objects that handles all default RESTFul API actions"""
 
-from flask import jsonify, abort, request, make_request
+from flask import jsonify, abort, request
 from models import storage
 from models.city import City
 from models.user import User
