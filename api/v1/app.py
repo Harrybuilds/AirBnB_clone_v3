@@ -2,13 +2,14 @@
 """
 Flask application for the AirBnB clone API.
 
-This module creates a Flask application instance and provides the 
-'app' variable for interacting with the API endpoints. The 'app' variable 
-can be used for registering blueprints, configuring error handlers, and 
-more.
+This module creates a Flask application instance and
+provides the 'app' variable for interacting with the API endpoints.
 
-This application uses Flask-CORS to allow Cross-Origin Resource Sharing
-(CORS) for all origins by default.
+The 'app' variable can be used for registering blueprints,
+configuring error handlers, and more.
+
+This application uses Flask-CORS to allow Cross-Origin
+Resource Sharing (CORS) for all origins by default.
 
 **Example usage:**
 
