@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-for application Flask
+app for application Flask
 """
 
 from flask import Flask, jsonify
@@ -11,7 +11,7 @@ from models import storage
 
 
 app = Flask(__name__)
-app.url_mapper = False
+
 
 
 CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
