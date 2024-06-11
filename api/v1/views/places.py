@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """Place objects that handles all default RESTFul API actions"""
-from flask import jsonify, abort, request
+
+from flask import jsonify, abort, request, make_request
 from models import storage
 from models.city import City
 from models.user import User
 from models.place import Place
 from api.v1.views import app_views
+
 
 @app_views.route('/cities/<city_id>/places', methods=['GET'], strict_slashes=False)
 def get_places(city_id):
