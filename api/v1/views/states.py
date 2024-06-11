@@ -7,7 +7,6 @@ from api.v1.views import app_views, storage
 from models.state import State
 
 
-
 @app_views.route('/states', strict_slashes=False)
 def get_states():
     """Retrieves the list of all State objects"""
@@ -16,7 +15,7 @@ def get_states():
 
 
 @app_views.route("/states", methods=["POST"], strict_slashes=False)
-def state_create():
+def create_create():
     """
     returns newly created state obj
     """
@@ -28,14 +27,14 @@ def state_create():
 
     new_state = State(**state_json)
     new_state.save()
-    resp = jsonify(new_state.to_json())
+    resp = jsonify(new_state.to_dict())
     resp.status_code = 201
 
     return resp
 
 
 @app_views.route("/states/<state_id>",  methods=["GET"], strict_slashes=False)
-def state_by_id(state_id):
+def get_state_by_id(state_id):
     """
     gets a specific State object by ID
     :param state_id: state object id
@@ -47,12 +46,11 @@ def state_by_id(state_id):
     if fetched_obj is None:
         abort(404)
 
-    return jsonify(fetched_obj.to_json())
-
+    return jsonify(fetched_obj.to_dict())
 
 
 @app_views.route("/states/<state_id>",  methods=["PUT"], strict_slashes=False)
-def state_put(state_id):
+def update_state(state_id):
     """
     updates specific State object by ID
     :param state_id: state object ID
@@ -68,12 +66,12 @@ def state_put(state_id):
         if key not in ["id", "created_at", "updated_at"]:
             setattr(fetched_obj, key, val)
     fetched_obj.save()
-    return jsonify(fetched_obj.to_json())
+    return jsonify(fetched_obj.to_dict())
 
 
 @app_views.route("/states/<state_id>", methods=["DELETE"],
                  strict_slashes=False)
-def state_delete_by_id(state_id):
+def delete_state_by_id(state_id):
     """
     deletes State by id
     :param state_id: state object id
