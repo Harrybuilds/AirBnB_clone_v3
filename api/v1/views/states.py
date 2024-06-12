@@ -4,7 +4,8 @@ State objects that handles all default RESTFul API actions
 """
 from flask import jsonify, abort, request
 from api.v1.views import app_views, storage
-from models.state import State
+from api.v1.views import State, Place, City
+from api.v1.views import Review, Amenity, User
 
 
 METHODS = ['GET', 'POST', 'PUT', 'DELETE']
